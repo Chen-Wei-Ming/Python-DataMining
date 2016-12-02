@@ -32,4 +32,4 @@ attritube_df = df[list(attritube_colums)]
 attritube_df = pd.get_dummies(attritube_df)
 print(attritube_df)
 
-dump_svmlight_file(attritube_df,df['Death Year'],"output/deaths_svm.txt",zero_based=True,multilabel=False)
+dump_svmlight_file(attritube_df,df['Death Year'],"output/deaths_svm_will.txt",zero_based=True,multilabel=False)
