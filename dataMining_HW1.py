@@ -14,7 +14,7 @@ from sklearn.tree import export_graphviz
 from sklearn import tree
 
 # import data from csv file
-df = pd.read_csv('D:\Python\Data\character-deaths.csv')
+df = pd.read_csv('Data/character-deaths.csv')
 # transform NaN to 0
 df = df.fillna(0)
 # delete colums
