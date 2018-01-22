@@ -14,12 +14,18 @@ TN = float(labelsAndPredictions.filter(lambda (v, p): v == p and p == 0 ).count(
 FP = float(labelsAndPredictions.filter(lambda (v, p): v != p and p == 1 ).count())
 FN = float(labelsAndPredictions.filter(lambda (v, p): v != p and p == 0 ).count())
 datasum = float(TP+TN+FP+FN)
+print('TP = ' + str(TP))
+print('TN = ' + str(TN))
+print('FP = ' + str(FP))
+print('FN = ' + str(FN))
 accuracyFormEvaluation = (TP + TN) / datasum
 precisionFormEvaluation = TP / (TP + FP)
 recallFormEvaluation = TP / (TP + FN)
 print('AccuracyFormEvaluation = ' + str(accuracyFormEvaluation))
 print('PrecisionFormEvaluation = ' + str(precisionFormEvaluation))
 print('RecallFormEvaluation = ' + str(recallFormEvaluation))
+print('Learned classification tree model:')
+print(model.toDebugString())
 # from pyspark.mllib.evaluation import MulticlassMetrics
 # metrics = MulticlassMetrics(labelsAndPredictions)\
 # metrics.precision()

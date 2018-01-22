@@ -30,7 +30,7 @@ attritube_colums = ['Allegiances' , 'Book Intro Chapter' , 'Gender' , 'Nobility'
 # use setting colums to limit df colums
 attritube_df = df[list(attritube_colums)]
 attritube_df = pd.get_dummies(attritube_df)
-print(attritube_df)
+# print(attritube_df)
 
 # split data 75% & 25%
 attritube_TrainValue , attritube_TestValue , target_TrainValue , target_TestValue = tts(

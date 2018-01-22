@@ -7,6 +7,13 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text  import  TfidfTransformer
 from sklearn.cluster import KMeans
 
+def creat_TwoDimensionalArray(number) :
+    array = []
+    for index in range(number):
+        item = []
+        array.append(item)
+    return array
+
 data = pd.read_csv('Data/dataset-utf8.csv')
 dataContent = data['postContent']
 dataContent_array = []
@@ -36,5 +43,16 @@ word = vectorizer.get_feature_names()
 transformer = TfidfTransformer()
 tfidf = transformer.fit_transform(word_feq)
 # 分群
-kmeans = KMeans(n_clusters=10, random_state=0).fit(tfidf)
-print(kmeans.labels_)
+clusterNumber = 10
+kmeans = KMeans(n_clusters=clusterNumber, random_state=0).fit(tfidf)
+number = 0
+content_list = creat_TwoDimensionalArray(clusterNumber)
+for label in kmeans.labels_ :
+    content_list[label].append(dataContent[number])
+    print ('PostContent index-%d : %s' %(number+1 , dataContent[number]))
+    number = number + 1 
+for cluster in range(clusterNumber) :
+    print('Cluster %d' %(cluster))
+    for content in content_list[cluster] :
+        print(content)
+
